@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اشترك بالقناة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #000000;
+            background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 100%);
+            color: #fff;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #d4af37;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, #f1e5ac, #d4af37);
+            z-index: -1;
+            border-radius: 16px;
+            animation: borderAnimation 3s linear infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        h1 {
+            color: #d4af37;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #d4af37 0%, #f1e5ac 50%, #d4af37 100%);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+            background-size: 200% auto;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+            background-position: right center;
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .message {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .decoration {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(212, 175, 55, 0.1);
+            z-index: -1;
+        }
+        
+        .decoration.top-left {
+            top: 10px;
+            left: 20px;
+        }
+        
+        .decoration.bottom-right {
+            bottom: 10px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decoration top-left">✦</div>
+        <div class="decoration bottom-right">✦</div>
+        
+        <h1>مرحباً بكم في قناتنا</h1>
+        <button class="btn" id="startBtn">بدء</button>
+        <div class="message" id="subscribeMessage">اشترك بالقناة</div>
+    </div>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function() {
+            const message = document.getElementById('subscribeMessage');
+            
+            // إظهار الرسالة بتأثير
+            message.classList.add('show');
+            
+            // اهتزاز الزر عند الضغط
+            this.style.transform = 'translateY(2px)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
